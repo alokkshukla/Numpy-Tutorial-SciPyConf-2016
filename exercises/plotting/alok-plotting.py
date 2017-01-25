@@ -54,40 +54,37 @@ Bonus
    Make this modification to your script, and explore the consequences.
    Hint: try panning and zooming in the subplots.
 
-See :ref:`plotting-solution`.
 """
 
 
 # The following imports are *not* needed in PyLab, but are needed in this file.
-import os
-os.chdir('/Users/alok/Google Drive/Python/SciPyConf2016/Numpy-Tutorial-SciPyConf-2016/exercises/plotting')
 from numpy import linspace, pi, sin, cos
 from matplotlib.pyplot import (plot, subplot, cm, imread, imshow, xlabel,
                                ylabel, title, grid, axis, show, savefig, gcf,
                                figure, close, tight_layout)
 
-x = linspace(0, 2 * pi, 101)
+x = linspace(0, 2*pi, 101)
 s = sin(x)
 c = cos(x)
-
 
 img = imread('dc_metro.JPG')
 
 close('all')
-ax1 = subplot(2,2,1)
-plot(x,s,'b-',x,c,'r+')
+# 2x2 layout, first plot: sin and cos
+ax1 = subplot(2, 2, 1)
+plot(x, s, 'b-', x, c, 'r+')
 axis('tight')
 
-
-subplot(2,2,2,sharex=ax1, sharey=ax1)
-plot(x,s,'b-')
+# 2nd plot: gridlines, labels
+subplot(2, 2, 2, sharex=ax1, sharey=ax1)
+plot(x, s)
 grid()
 xlabel('radians')
 ylabel('amplitude')
 title('sin(x)')
 axis('tight')
 
-
+# 3rd plot, image
 subplot(2, 2, 3)
 imshow(img, extent=[-10, 10, -10, 10], cmap=cm.winter)
 
@@ -96,4 +93,4 @@ tight_layout()
 show()
 
 
-savefig('my_solution3.png')
+savefig('my_plots.png')
