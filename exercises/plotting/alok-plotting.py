@@ -93,4 +93,4 @@ tight_layout()
 show()
 
 
-savefig('my_plots.png')
+savefig('alok_plots.pdf',bbox_inches='tight') # No extra white space

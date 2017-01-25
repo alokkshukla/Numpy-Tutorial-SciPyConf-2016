@@ -58,3 +58,5 @@ See :ref:`load-text-solution`
 """
 
 from numpy import loadtxt
+data = loadtxt('float_data.txt')
+print(data)
